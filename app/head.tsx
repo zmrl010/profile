@@ -1,9 +1,12 @@
 export default function Head() {
   return (
     <>
-      <title>Zach&apos;s Portfolio</title>
+      <title>Zach&apos;s Profile</title>
       <meta content="width=device-width, initial-scale=1" name="viewport" />
-      <meta name="description" content="Portfolio by Zach Riel" />
+      <meta
+        name="description"
+        content="Zach Riel's developer profile and project showcase"
+      />
       <link
         rel="apple-touch-icon"
         sizes="180x180"

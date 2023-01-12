@@ -1,91 +1,52 @@
-import Image from 'next/image'
-import { Inter } from '@next/font/google'
-import styles from './page.module.css'
+import { Inter } from '@next/font/google';
+import Image from 'next/image';
+import styles from './page.module.scss';
+import { TechList, type Technology } from './TechList';
 
-const inter = Inter({ subsets: ['latin'] })
+const inter = Inter({ subsets: ['latin'] });
+
+const TECH_ITEMS: Technology[] = [
+  ['Rust', '/icons/rust.svg'],
+  ['React', '/icons/react.svg'],
+  ['TypeScript', '/icons/typescript.svg'],
+  ['Node.js', '/icons/nodejs.svg'],
+  ['.NET', '/icons/dotnet.svg'],
+  ['Python', '/icons/python.svg'],
+];
+
+const LINKEDIN_URL = 'https://www.linkedin.com/in/zach-riel-420b78a2/';
+const GITHUB_URL = 'https://github.com/zmrl010';
 
 export default function Home() {
   return (
-    <main className={styles.main}>
-      <div className={styles.description}>
-        <p>
-          Get started by editing&nbsp;
-          <code className={styles.code}>app/page.tsx</code>
-        </p>
-        <div>
-          <a
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{' '}
+    <>
+      <header className={styles.header} style={inter.style}>
+        <h1>zmrl</h1>
+        <p>Profile of Zach Riel</p>
+        <p>Full Stack Software Developer</p>
+        <div className={styles.links}>
+          <a href={LINKEDIN_URL} target="_blank" rel="noreferrer">
             <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className={styles.vercelLogo}
-              width={100}
-              height={24}
-              priority
+              src="/icons/linkedin.svg"
+              alt="LinkedIn icon"
+              width={45}
+              height={45}
+            />
+          </a>
+          <a href={GITHUB_URL} target="_blank" rel="noreferrer">
+            <Image
+              src="/icons/github.svg"
+              alt="GitHub icon"
+              width={45}
+              height={45}
             />
           </a>
         </div>
-      </div>
-
-      <div className={styles.center}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-        <div className={styles.thirteen}>
-          <Image src="/thirteen.svg" alt="13" width={40} height={31} priority />
-        </div>
-      </div>
-
-      <div className={styles.grid}>
-        <a
-          href="https://beta.nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={inter.className}>
-            Docs <span>-&gt;</span>
-          </h2>
-          <p className={inter.className}>
-            Find in-depth information about Next.js features and API.
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={inter.className}>
-            Templates <span>-&gt;</span>
-          </h2>
-          <p className={inter.className}>Explore the Next.js 13 playground.</p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={inter.className}>
-            Deploy <span>-&gt;</span>
-          </h2>
-          <p className={inter.className}>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
-    </main>
-  )
+      </header>
+      <main className={styles.main} style={inter.style}>
+        <p>Tech Interests</p>
+        <TechList items={TECH_ITEMS} />
+      </main>
+    </>
+  );
 }
